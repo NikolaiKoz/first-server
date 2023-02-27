@@ -1,16 +1,11 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const { index, listOfProducts, newProduct } = require("../controllers/index");
 
-router.get('/', (req, res) =>{
-    res.render('index', {
-        title: "My web store"
-    });
-});
+router.get("/", index);
 
-router.get('/products', (req, res, next) => {
-    res.render('products', {
-        title: "list of Products"
-    });
-});
+router.get("/products", listOfProducts);
+
+router.post("/new-product", newProduct);
 
 module.exports = router;
